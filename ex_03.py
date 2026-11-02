@@ -5,27 +5,18 @@
 
 def main():
     n = int(input("Enter a number N: "))
-    isUnique = True
-    isRepeated = True
 
     unique_numbers = []
     repeated_numbers = []
 
     while len(unique_numbers) < n:
         temp = int(input("Enter any number: "))
-        for unique in unique_numbers:
-            if unique == temp:
-                isUnique = False
-        if isUnique:
+        if temp not in unique_numbers:
             unique_numbers.append(temp)
         else:
-            for repeated in repeated_numbers:
-                if repeated == temp:
-                    isRepeated = False
-            if isRepeated:
+            if temp not in repeated_numbers:
                 repeated_numbers.append(temp)
-        isUnique = True
-        isRepeated = True
+
     print("Different numbers:", unique_numbers)
     print("Repeated numbers:", repeated_numbers if repeated_numbers else ["None"])
 if __name__ == "__main__":
